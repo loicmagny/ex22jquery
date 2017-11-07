@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <script src='jquery-3.2.1.js'></script>
+  <title>Exercice 1</title>
+</head>
+<body>
+  <form>
+    <input type='checkbox' name='stone' value='1' id='stone'>Pierre</input>
+    <input type='checkbox' name='paper' value='2' id='paper'>Papier</input>
+    <input type='checkbox' name='scissors' value='3' id='scissors'>Ciseaux</input>
+    <button type='button' name='button' id='btn'>Shifumi!</button>
+  </form>
+  <script>
+  var stone = $('input[type=checkbox][name=stone]:checked').val();
+  var paper = $('input[type=checkbox][name=paper]:checked').val();
+  var scissors = $('input[type=checkbox][name=scissors]:checked').val();
+  var stone = 1
+  var paper = 2
+  var scissors = 3
+  var numberGame = 0
+  var defeat = 0;
+  var victory = 0;
+  var computer = Math.round(Math.random()*(3 - 1))+1;
+  if (computer === 1) {
+    computer == stone;}
+    else if (computer === 2) {
+      computer == paper;}
+      else if (computer === 3) {
+        computer == scissors; }
+        numberGame ++;
+        victory ++;
+        defeat ++;
+        var percentage = Math.round((victory - defeat)/numberGame)*100;
+        $('#btn').click(function(){
+          if ($('input[type=checkbox][name=stone]:checked').val() && computer == 1) {
+            alert('Égalité');
+            numberGame ++;
+            console.log(computer);
+            return false;
+          }
+          else if ($('input[type=checkbox][name=stone]:checked').val() && computer == 2){
+            alert('Perdu! Vous avez perdu '+ defeat + ' fois. Votre pourcentage de victoires est '+percentage+'%');
+            console.log(computer);
+            victory -=1;
+            numberGame ++;
+            return false;
+          }
+          else if ($('input[type=checkbox][name=stone]:checked').val() && computer == 3) {
+            alert('Gagné! Vous avez '+ victory +' victoires. Votre pourcentage de victoires est '+percentage+'%');
+            victory += 1;
+            numberGame ++;
+            console.log(computer);
+            return false;
+          }
+          if ($('input[type=checkbox][name=paper]:checked').val() && computer == 1) {
+            alert('Gagné! Vous avez '+ victory +' victoires. Votre pourcentage de victoires est '+percentage+'%');
+            victory =+ 1;
+            numberGame ++;
+            console.log(computer);
+            return false;
+          }
+          else if ($('input[type=checkbox][name=paper]:checked').val() && computer == 2){
+            alert('Égalité');
+            defeat += 1;
+            numberGame ++;
+            console.log(computer);
+            return false;
+          }
+          else if ($('input[type=checkbox][name=paper]:checked').val() && computer == 3) {
+            alert('Perdu! Vous avez perdu '+ defeat +' fois. Votre pourcentage de victoires est '+percentage+'%');
+            defeat += 1;
+            victory -=1;
+            numberGame ++;
+            console.log(computer);
+            return false;
+          };
+          if ($('input[type=checkbox][name=scissors]:checked').val() && computer == 1) {
+            alert('Perdu! Vous avez perdu '+ defeat +' fois. Votre pourcentage de victoires est '+percentage+'%');
+            defeat += 1;
+            victory -=1;
+            numberGame ++;
+            console.log(computer);
+            return false;
+          }
+          else if ($('input[type=checkbox][name=scissors]:checked').val() && computer == 2){
+            alert('Gagné! Vous avez '+ victory +' victoires. Votre pourcentage de victoires est '+percentage+'%');
+            victory += 1;
+            numberGame ++;
+            console.log(computer);
+            return false;
+          }
+          else if ($('input[type=checkbox][name=scissors]:checked').val() && computer == 3) {
+            alert('Égalité');
+            numberGame ++;
+            console.log(computer);
+            return false;
+          };
+        });
+        </script>
+      </body>
+      </html>
